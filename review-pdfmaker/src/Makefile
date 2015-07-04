@@ -1,5 +1,5 @@
 all:
 	review-pdfmaker config.yml
-#	evince <FILE_NAME>.pdf
+	evince book.pdf
 clean:
-	rm -rf <FILE_NAME>*
+	rm -rf book*
