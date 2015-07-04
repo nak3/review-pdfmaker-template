@@ -1,0 +1,217 @@
+\documentclass[oneside]{jsbook}
+\usepackage[deluxe]{otf}
+\usepackage[dvipdfmx]{color}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{framed}
+\usepackage{wrapfig}
+\definecolor{shadecolor}{gray}{0.9}
+\definecolor{shadecolorb}{gray}{0.1}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{jumoline}
+
+\usepackage{ascmac}
+
+\usepackage{float}
+\usepackage{alltt}
+
+\newenvironment{shadedb}{%
+  \def\FrameCommand{\fboxsep=\FrameSep \colorbox{shadecolorb}}%
+  \MakeFramed {\FrameRestore}}%
+ {\endMakeFramed}
+
+
+\usepackage[top=10zw,bottom=12zw,left=10zw,right=10zw]{geometry}
+%\usepackage[top=5zw,bottom=5zw,left=1zw,right=1zw]{geometry}
+
+
+\newcommand{\parasep}{\vspace*{3zh}}
+\setlength{\footskip}{30pt}
+
+%% Bookmarkの文字化け対策（日本語向け）
+\ifnum 46273=\euc"B4C1 % 46273 == 0xB4C1 == 漢(EUC-JP)
+  \usepackage{atbegshi}%
+  \AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}}%
+  %%\AtBeginDvi{\special{pdf:tounicode EUC-UCS2}}%
+\else
+  \usepackage{atbegshi}%
+  \AtBeginShipoutFirst{\special{pdf:tounicode 90ms-RKSJ-UCS2}}%
+  %%\AtBeginDvi{\special{pdf:tounicode 90ms-RKSJ-UCS2}}%
+\fi
+
+\usepackage[dvipdfm,bookmarks=true,bookmarksnumbered=true,colorlinks=true,%
+            pdftitle={ReVIEWサンプル書籍},%
+            pdfauthor={中山健次郎}]{hyperref}
+
+\newenvironment{reviewimage}{%
+  \begin{figure}[H]
+    \begin{center}}{%
+    \end{center}
+  \end{figure}}
+
+\newenvironment{reviewdummyimage}{%
+  \begin{figure}[H]
+    \begin{center}}{%
+    \end{center}
+  \end{figure}}
+
+\newenvironment{reviewemlist}{%
+  \medskip\small\begin{shaded}\setlength{\baselineskip}{1.3zw}}{%
+  \end{shaded}}
+
+\newenvironment{reviewlist}{%
+  \begin{shaded}\small\setlength{\baselineskip}{1.3zw}}{%
+  \end{shaded}\par\vspace*{0.5zw}}
+
+\newenvironment{reviewcmd}{%
+  \color{white}\medskip\small\begin{shadedb}\setlength{\baselineskip}{1.3zw}}{%
+  \end{shadedb}}
+
+\newenvironment{reviewtable}[1]{%
+  \begin{center}\small\setlength{\baselineskip}{1.2zw}
+    \begin{tabular}{#1}}{%
+    \end{tabular}
+  \end{center}}
+
+\newenvironment{reviewcolumn}{%
+     \begin{framed}
+   }{%
+      \end{framed}
+  \vspace{2zw}}
+
+\newcommand{\reviewcolumnhead}[2]{%
+{\noindent\large ■コラム: #2}}
+
+\newcommand{\reviewtablecaption}[1]{%
+  \caption{#1}}
+
+\newcommand{\reviewbackslash}[0]{%
+  \textbackslash{}}
+
+\newcommand{\reviewlistcaption}[1]{%
+  \medskip{\small\noindent #1}\vspace*{-1.3zw}}
+
+\newcommand{\reviewemlistcaption}[1]{%
+  \medskip{\small\noindent #1}\vspace*{-1.3zw}}
+
+\newcommand{\reviewcmdcaption}[1]{%
+  \medskip{\small\noindent #1}\vspace*{-1.3zw}}
+
+\newcommand{\reviewimageref}[1]{%
+  図 #1}
+\newcommand{\reviewtableref}[1]{%
+  表 #1}
+\newcommand{\reviewlistref}[1]{%
+  リスト #1}
+
+\newcommand{\reviewminicolumntitle}[1]{%
+  {\large ■メモ：#1}\\}
+
+\newenvironment{reviewminicolumn}{%
+  \vspace{1.5zw}\begin{screen}}{%
+  \end{screen}\vspace{2zw}}
+
+\newcommand{\reviewkw}[1]{%
+  \textbf{\textgt{#1}}}
+
+\newcommand{\reviewtitlefont}[0]{%
+  \usefont{T1}{phv}{b}{n}\gtfamily}
+
+\newcommand{\reviewmainfont}[0]{%
+ }
+
+\newcommand{\reviewcolophon}[0]{%
+  \backmatter
+  \clearpage}
+\newcommand{\reviewappendix}[0]{%
+  \appendix}
+
+\makeatletter
+\def\maxwidth{%
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\usepackage{review}
+
+\usepackage[T1]{fontenc}
+
+\begin{document}
+
+\reviewmainfont
+\begin{titlepage}
+  \begin{center}
+    %%%\mbox{}\vskip5zw%
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./images/cover.jpg}
+  \end{center}
+  \clearpage
+\thispagestyle{empty}
+\begin{center}%
+  \mbox{} \vskip5zw
+   \reviewtitlefont%
+    {\Huge ReVIEWサンプル書籍 \par}%
+    \vskip 15em%
+    {\huge
+      \lineskip .75em
+      \begin{tabular}[t]{c}%
+        中山健次郎\vspace*{1zh} 著
+      \end{tabular}\par}%
+    \vfill
+    {\large 2011-08-03 版\hspace{2zw}所属　発行\par}%
+\vskip4zw\mbox{}
+  \end{center}%
+\end{titlepage}
+
+\renewcommand{\chaptermark}[1]{{}}
+\frontmatter
+
+%% preface
+\input{preface.tex}
+
+
+\tableofcontents
+
+\renewcommand{\chaptermark}[1]{\markboth{\prechaptername\thechapter\postchaptername~#1}{}}
+\mainmatter
+
+\input{ch01.tex}
+\input{ch02.tex}
+
+
+\renewcommand{\chaptermark}[1]{\markboth{\appendixname\thechapter~#1}{}}
+\reviewappendix
+
+
+
+%% okuduke
+\reviewcolophon
+\thispagestyle{empty}
+
+\vspace*{\fill}
+
+{\noindent\reviewtitlefont\Large ReVIEWサンプル書籍} \\
+\rule[8pt]{14cm}{1pt} \\
+{\noindent
+2011年08月03日 v1.0.0版発行
+
+\noindent
+}
+
+\begin{tabular}{ll}
+著　者 & 中山健次郎 \\
+編集者 & 中山健次郎 \\
+発行所 & 所属 \\
+
+\end{tabular}
+　\\
+\rule[0pt]{14cm}{1pt} \\
+(C) 2012 Kenjiro Nakayama
+ \\
+
+\end{document}
+

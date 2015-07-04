@@ -1,0 +1,84 @@
+\chapter{Linux コマンドサンプル}
+\label{chap:ch01}
+
+\section{本文について}
+\reviewlistcaption{リスト1.2: Linuxコマンドサンプル}
+\begin{reviewlist}
+\begin{alltt}
+ \textdollar{}date -F
+\end{alltt}
+\end{reviewlist}
+
+
+２行以上以上空いていても１行空いているのと同様に処理します。
+
+\subsection{見出し}
+
+「=」「==」「===」の後に一文字空白をあけると見出しになります。
+
+\begin{reviewcolumn}
+\reviewcolumnhead{}{コラムについて}
+
+見出しの先頭に「[column]」と書くと、そこはコラムになります。
+
+\end{reviewcolumn}
+
+\section{箇条書き}
+
+番号のない箇条書きは「*」を使います。前後に空白を入れて下さい。
+
+\begin{itemize}
+\item 1つ目
+\item 2つ目
+\item 3つ目
+\end{itemize}
+
+番号つきの箇条書きには、「1.」「2.」などと書きます。
+数字の値は実際には無視され、連番が振られます。
+
+\begin{enumerate}
+\item 1つ目
+\item 2つ目
+\item 3つ目
+\end{enumerate}
+
+\section{ソースコードなどのリスト}
+
+リストには「//list」ブロックや「//emlist」ブロックを使います。
+
+\reviewlistcaption{リスト1.2: リストのサンプル}
+\begin{reviewlist}
+\begin{alltt}
+int main(int argc, char **argv) \{
+  puts("OK");
+  return 0;
+\}
+\end{alltt}
+\end{reviewlist}
+
+
+文中にリストを書くには「//emlist」になります。
+
+\begin{reviewemlist}
+\begin{alltt}
+def main
+  puts "ok"
+end
+\end{alltt}
+\end{reviewemlist}
+
+\section{画像}
+
+画像は「//image」ブロックを使います。
+
+\begin{reviewdummyimage}
+\begin{alltt}
+--[[path =  (not exist)]]--
+\end{alltt}
+\label{image:ch01:imgsample}
+画像サンプル
+\end{reviewdummyimage}
+
+より詳しくは、
+\url{https://github.com/kmuto/review/blob/master/doc/format.rdoc}
+を御覧ください。
